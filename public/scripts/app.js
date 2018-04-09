@@ -1,49 +1,38 @@
 'use strict';
 
-console.log('App.js is running');
+var add = function add(a, b) {
+    // console.log(arguments);
+    return a + b;
+};
+console.log(add(55, 1));
 
-var template = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        'Indecision App'
-    ),
-    React.createElement(
-        'p',
-        null,
-        'this is App.js'
-    )
-);
 var user = {
     name: 'Lucas',
-    age: 27,
-    location: 'Ceará'
+    cities: ['Fortaleza', 'São Paulo', 'Recife'],
+    printPlacesLived: function printPlacesLived() {
+        var _this = this;
+
+        return this.cities.map(function (city) {
+            return _this.name + ' has lived in ' + city + '!!';
+        });
+        // this.cities.forEach((city) => {
+        //     console.log(this.name + ' has lived in '+ city);
+        // });
+    }
 };
 
-var template2 = React.createElement(
-    'div',
-    null,
-    React.createElement(
-        'h1',
-        null,
-        user.name
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Age: ',
-        user.age
-    ),
-    React.createElement(
-        'p',
-        null,
-        'Location: ',
-        user.location
-    )
-);
+console.log(user.printPlacesLived());
 
-var appRoot = document.getElementById('app');
+var multiplier = {
+    numbers: [6, 12, 47, 38],
+    multiplyBy: 2,
+    multiply: function multiply() {
+        var _this2 = this;
 
-ReactDOM.render(template2, appRoot);
+        return this.numbers.map(function (number) {
+            return number * _this2.multiplyBy;
+        });
+    }
+};
+
+console.log(multiplier.multiply());
